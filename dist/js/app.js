@@ -13,5 +13,3 @@ Pomodoro.config(['$stateProvider', '$locationProvider', function($stateProvider,
      templateUrl: '/templates/landing.html'
    });
  }]);
-
-Pomodoro.controller('Landing.controller', ['$scope', function($scope) {

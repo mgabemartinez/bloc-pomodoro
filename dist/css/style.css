@@ -2,11 +2,16 @@ body {
   background-color: #C96363; }
 
 h1 {
+  font-family: Ubuntu;
   text-align: center;
-  size: 42px;
+  font-size: 200px;
+  color: white;
+  font-weight: 500;
+  font-size: 200px;
   color: white; }
 
 h2 {
+  font-family: Libre Baskerville;
   color: white;
   text-align: center; }
 
