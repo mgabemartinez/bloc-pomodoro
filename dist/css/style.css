@@ -4,20 +4,84 @@ body {
 h1 {
   font-family: Ubuntu;
   text-align: center;
-  font-size: 200px;
-  color: white;
+  color: #F0E7CC;
   font-weight: 500;
-  font-size: 200px;
-  color: white; }
+  font-size: 160px; }
 
 h2 {
   font-family: Libre Baskerville;
-  color: white;
+  color: #F0E7CC;
   text-align: center; }
 
-.nav {
-  position: fixed;
+h3 {
+  font-family: Libre Baskerville;
+  font-size: 1.2em;
+  color: #F0E7CC;
+  text-align: center; }
+  h3:hover {
+    color: #9E4747; }
+
+.main-nav {
   top: 0;
   background-color: #F0E7CC;
-  height: 200px;
-  width: 100px; }
+  height: 80px; }
+  .main-nav ul {
+    height: 100%;
+    left: 20px;
+    padding-right: 10px; }
+  .main-nav li {
+    font-family: Ubuntu;
+    font-weight: 200;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.2em;
+    color: #C96363;
+    background-color: transparent;
+    height: 100%;
+    margin: 0;
+    padding: 28px; }
+    .main-nav li:hover {
+      background-color: #E8DAB3; }
+
+#home {
+  height: 94vh;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center; }
+  #home .hero {
+    border: solid 4px #F0E7CC;
+    padding: 2%;
+    padding-bottom: 2%;
+    margin-top: 8%;
+    margin-bottom: 4%; }
+    #home .hero h2 {
+      padding-bottom: 80px; }
+  #home .button {
+    height: 100px;
+    width: 200px;
+    background-color: #F0E7CC;
+    color: #C96363; }
+    #home .button:hover {
+      background-color: #E8DAB3; }
+    #home .button h2 {
+      font-family: Ubuntu;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: #C96363;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      padding-top: 15px; }

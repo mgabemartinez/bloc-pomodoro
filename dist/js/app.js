@@ -1,15 +1,24 @@
-var app = angular.module('Pomodoro', ['firebase', 'ui.router']);
+/// App Config ///
+
+var Pomodoro = angular.module('Pomodoro', ['firebase', 'ui.router']);
 
 app.controller(['$scope,'
 
   ]) 
 
 Pomodoro.config(['$stateProvider', '$locationProvider', function($stateProvider, $locationProvider) {
-   $locationProvider.html5Mode(true);
+  $locationProvider.html5Mode(true);
  
-   $stateProvider.state('landing', {
-     url: '/',
-     controller: 'Landing.controller',
-     templateUrl: '/templates/landing.html'
-   });
- }]);
+  $stateProvider.state('home', {
+    url: '/',
+    controller: 'home.controller',
+    templateUrl: '/templates/home.html'
+  });
+}]);
+
+
+/// Call the controller ///
+
+
+
+

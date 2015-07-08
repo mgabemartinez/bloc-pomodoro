@@ -1,25 +1,89 @@
 @import colors
 
 body
-  background-color: $background1
+  background-color: $red
 
 h1
   font-family: $h1
   text-align: center
-  font-size: 200px
-  color: white
+  color: $yellow
   font-weight: 500
-  font-size: 200px
-  color: white
+  font-size: 160px
 
 h2
   font-family: $h2
-  color: white
+  color: $yellow
   text-align: center
 
-.nav
-  position: fixed
+h3
+  font-family: $h2
+  font-size: 1.2em
+  color: $yellow
+  text-align: center
+
+  &:hover
+    color: $dark-red
+
+.main-nav
   top: 0
-  background-color: $nav
-  height: 200px
-  width: 100px
+  background-color: $yellow
+  height: 80px
+
+  ul
+    height: 100%
+    left: 20px
+    padding-right: 10px
+
+  li
+    font-family: $h1
+    font-weight: 200
+    text-transform: uppercase
+    text-align: center
+    font-size: 1.2em
+    color: $red
+    background-color: transparent  
+    height: 100%
+    margin: 0
+    padding: 28px
+
+
+    &:hover
+      background-color: $highlight-yellow
+
+#home
+  height: 94vh
+  display: flex
+  flex-direction: column
+  align-items: center 
+  text-align: center
+
+  .hero
+    border: solid 4px $yellow
+    padding: 2%
+    padding-bottom: 2%
+    margin-top: 8%
+    margin-bottom: 4%
+
+    h2
+      padding-bottom: 80px
+
+  .button
+    height: 100px
+    width: 200px
+    background-color: $yellow
+    color: $red
+
+    &:hover
+      background-color: $highlight-yellow
+    
+    h2
+      font-family: $h1
+      font-weight: 400
+      letter-spacing: 2px
+      color: $red
+      flex-direction: column
+      align-items: center 
+      justify-content: center
+      padding-top: 15px
+
+
