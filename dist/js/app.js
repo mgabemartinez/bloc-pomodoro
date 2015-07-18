@@ -29,30 +29,29 @@ Pomodoro.config(['$stateProvider', '$locationProvider', function($stateProvider,
 
 /// Call the controller ///
 Pomodoro.controller('home.controller', ['$scope', function($scope) {
-    console.log('Hey, this is home.controller')
 }]);
 
 Pomodoro.controller('about.controller', ['$scope', function($scope) {
-    console.log('Hey, this is about.controller')
  }]);
 
 Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($scope, $interval) {
-    console.log('Hey, this is work-timer.controller')
 
   $scope.startButton = 'START';
   $scope.pauseButton = 'PAUSE';
-  $scope.currentSecond = 1500;
+  $scope.currentSecond = 1499; 
+  $scope.timeString = '25:00';
+  
   var currentSecond = $scope.currentSecond;
   var timerOn = false;
 
   $scope.workTimeKeeper = function() {
-    console.log('start');
-    
+
     if (timerOn === false) {
+
       timerOn = true;
-      
+      $scope.startButton = 'RESET';
+
       var secondCounter = $interval(function() { 
-        console.log('again!')
       
         var minutes = Math.floor(currentSecond / 60);
         var seconds = (currentSecond % 60);
@@ -68,28 +67,24 @@ Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($s
         }
       
         if (currentSecond < 1500) {
-          console.log('timer is on');
         }
 
         if (currentSecond === 0 || timerOn === false) {
-          clearInterval(secondCounter);
+          $interval.cancel(secondCounter);
         }
 
-        document.getElementById("workTime").innerHTML = timeString;
 
+        document.getElementById("workTime").innerHTML = timeString; 
+        
         currentSecond--;
       }, 1000); 
-
-  // start clicked
-  //   if timer not on then start time keeping
-  //   else reset timer and start running
-  //     set currentSecond to 1500
-
- 
-      // when paused set timerOn to false
     }
+
     else {
+      $scope.startButton = 'START';
       currentSecond = 1500;
+      $interval.cancel(secondCounter);
+      timerOn = false
     }
   };
 
