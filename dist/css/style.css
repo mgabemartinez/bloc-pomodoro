@@ -1,0 +1,175 @@
+body {
+  background-color: #C96363; }
+
+h1 {
+  font-family: Ubuntu;
+  text-align: center;
+  color: #F0E7CC;
+  font-weight: 500;
+  font-size: 160px; }
+
+h2 {
+  font-family: Libre Baskerville;
+  color: #F0E7CC; }
+
+h3 {
+  font-family: Libre Baskerville;
+  font-size: 1.2em;
+  color: #F0E7CC;
+  text-align: center; }
+
+p {
+  font-family: Libre Baskerville;
+  color: #262626;
+  font-size: 1.15em;
+  letter-spacing: 0.01em;
+  padding: 20px; }
+
+.button-large {
+  text-decoration: none;
+  padding: 45px 90px;
+  background-color: #F0E7CC;
+  color: #C96363;
+  font-family: Ubuntu;
+  font-weight: 400;
+  font-size: 2em;
+  letter-spacing: 2px; }
+  .button-large:hover {
+    text-decoration: none;
+    color: #9E4747;
+    background-color: #E8DAB3; }
+  .button-large:visited {
+    text-decoration: none;
+    color: #C96363; }
+  .button-large:active {
+    text-decoration: none;
+    -webkit-text-decoration-style: none;
+       -moz-text-decoration-style: none;
+            text-decoration-style: none; }
+
+.main-nav {
+  top: 0;
+  background-color: #F0E7CC;
+  height: 86px;
+  margin: 0;
+  padding: 0;
+  border: none; }
+  .main-nav ul {
+    height: 100%;
+    left: 20px; }
+  .main-nav li {
+    padding: 0;
+    margin: 0 auto;
+    border: 0; }
+    .main-nav li a {
+      text-decoration: none;
+      font-family: Ubuntu;
+      font-weight: 500;
+      text-transform: uppercase;
+      text-align: center;
+      font-size: 1.2em;
+      letter-spacing: 2px;
+      color: #C96363;
+      padding: 27px;
+      border-top: 6px solid #F0E7CC;
+      border-bottom: 6px solid #F0E7CC; }
+      .main-nav li a:hover {
+        text-decoration: none;
+        color: #9E4747;
+        border-top: 6px solid #9E4747;
+        background-color: #E8DAB3; }
+      .main-nav li a:active {
+        text-decoration: none;
+        border-top: 6px solid #9E4747; }
+      .main-nav li a:visited {
+        text-decoration: none;
+        background-color: #F0E7CC; }
+  .main-nav .home {
+    font-weight: 500;
+    font-size: 50px; }
+
+#home {
+  height: 94vh;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center; }
+  #home .hero {
+    background-image: url('../app/images/tomato.png');
+    z-index: 999;
+    border: solid 4px #F0E7CC;
+    padding: 2%;
+    padding-bottom: 2%;
+    margin-top: 8%;
+    margin-bottom: 4%; }
+    #home .hero a {
+      color: #C96363;
+      text-decoration: none;
+      text-transform: none;
+      color: inherit; }
+      #home .hero a:hover {
+        text-decoration: none;
+        color: #9E4747; }
+    #home .hero h2 {
+      padding-bottom: 80px; }
+
+#about-body {
+  height: 1600px; }
+  #about-body .about {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center; }
+    #about-body .about .about-hero {
+      border: solid 4px #F0E7CC;
+      margin: 5%;
+      width: 700; }
+      #about-body .about .about-hero h2 {
+        font-size: 30px;
+        padding-bottom: 0;
+        margin-bottom: 0; }
+      #about-body .about .about-hero h3 {
+        font-size: 3em;
+        padding: 30px; }
+    #about-body .about .info {
+      max-width: 670px;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      text-align: justify; }
+    #about-body .about .text-box {
+      margin-bottom: 15px; }
+    #about-body .about .text-box-4 {
+      margin-bottom: 100px; }
+
+#work-timer-body {
+  height: 100vh;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center; }
+  #work-timer-body h1 {
+    font-size: 20em;
+    padding: 7%; }
+  #work-timer-body h2 {
+    font-family: Ubuntu;
+    color: #C96363;
+    padding: 15px; }
