@@ -1,18 +1,37 @@
-<div>
-<a class='button-large' 
-     ng-click='workTimeKeeper()'
-     ng-hide='timerOn'>
+<div >
+  
 
-     {{ startButton }}
+<!-- /////// Work Start Button ///////  -->
 
-</a>
+  <a class='button-large work-start' 
+     ng-click='TimeKeeper()' ng-show="workTimerVisible">
 
-<a class='button-large'
-    ng-show='timerOn'>
+      {{ workStartButton }}
+
+  </a>
 
 
 
-     {{ pauseButton }}
 
-</a>
+<!-- /////// Break Start Button ///////  -->
+
+  <a class='button-large break-start'
+    ng-click='BreakTimeKeeper()' ng-show="breakTimerVisible"
+    >
+
+    {{ breakStartButton }}
+
+  </a>
+
+  <a class='button-large reset'
+    ng-click='loopReset()' ng-show="loopResetVisible"
+    >
+
+    {{ loopResetButton }}
+
+  </a>
+
+
+
+
 </div>
