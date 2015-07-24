@@ -55,6 +55,7 @@ Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($s
   $scope.breakTimerVisible = false;
   $scope.loopResetVisible = false;
 
+  $scope.sessionCounter = 0;
   var sessionCounter = 0;
 
 
@@ -92,7 +93,7 @@ Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($s
             if (currentSecond === 0 || workTimerOn === false) {
               $interval.cancel(secondCounter);
             }
-
+            
             if (currentSecond === 0) {
               sessionCounter = (sessionCounter + 1);
               console.log(sessionCounter);
@@ -100,6 +101,7 @@ Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($s
               $scope.breakTimerVisible = true;
               $scope.workTimerVisible = false;
             }
+
 
             $("#workTime")[0].innerHTML = timeString; 
             currentSecond--;
@@ -121,6 +123,14 @@ Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($s
           
           currentSecond = 4;
           breakTimerOn = true;
+
+          if (sessionCounter === 3) {
+            breakCurrentSecond = 300;
+          }
+
+          else {
+            breakCurrentSecond = 3;
+          }
 
           var breakSecondCounter = $interval(function() { 
             var breakMinutes = Math.floor(breakCurrentSecond / 60);
@@ -169,15 +179,15 @@ Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($s
         }
       };
 
-      $scope.loopReset = function() {
-        $("#workTime")[0].innerHTML = '25:00'; 
-        $scope.workStartButton = 'START WORK';
-        $scope.currentSecond = 1500
+  $scope.loopReset = function() {
+    $("#workTime")[0].innerHTML = '25:00'; 
+    $scope.workStartButton = 'START WORK';
+    $scope.currentSecond = 1500
 
-        workTimerOn = false;
-        $scope.workTimerVisible = true;
-        $scope.loopResetVisible = false;
-      }
+    workTimerOn = false;
+    $scope.workTimerVisible = true;
+    $scope.loopResetVisible = false;
+  }
 
 
 }]);
