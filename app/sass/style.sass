@@ -13,7 +13,6 @@ h1
 h2
   font-family: $h2
   color: $yellow
-  text-align: center
 
 h3
   font-family: $h2
@@ -21,36 +20,88 @@ h3
   color: $yellow
   text-align: center
 
+p
+  font-family: $h2
+  color: #262626
+  font-size: 1.15em
+  letter-spacing: .01em
+  padding: 20px
+
+
+.button-large
+  text-decoration: none
+  padding: 45px 90px 
+  background-color: $yellow
+  color: $red
+  font-family: $h1
+  font-weight: 400
+  font-size: 2em
+  letter-spacing: 2px
+
   &:hover
+    text-decoration: none
     color: $dark-red
+    background-color: $highlight-yellow
+
+  &:visited
+    text-decoration: none
+    color: $red
+
+  &:active
+    text-decoration: none
+    text-decoration-style: none
+
 
 .main-nav
   top: 0
   background-color: $yellow
-  height: 80px
+  height: 86px
+  margin: 0
+  padding: 0
+  border: none
 
   ul
     height: 100%
     left: 20px
-    padding-right: 10px
 
   li
-    font-family: $h1
-    font-weight: 200
-    text-transform: uppercase
-    text-align: center
-    font-size: 1.2em
-    letter-spacing: 1px
-    color: $red
-    background-color: transparent  
-    height: 100%
-    margin: 0
-    padding: 28px
+    padding: 0
+    margin: 0 auto
+    border: 0
+
+    a
+      text-decoration: none
+      font-family: $h1
+      font-weight: 500
+      text-transform: uppercase
+      text-align: center
+      font-size: 1.2em
+      letter-spacing: 2px
+      color: $red
+      padding: 27px
+      border-top: 6px solid $yellow
+      border-bottom: 6px solid $yellow
+      
+      &:hover
+        text-decoration: none 
+        color: $dark-red
+        border-top: 6px solid $dark-red
+        background-color: $highlight-yellow
+
+      &:active
+        text-decoration: none
+        border-top: 6px solid $dark-red
+
+      &:visited
+        text-decoration: none
+        background-color: $yellow
 
 
-    &:hover
-      background-color: $highlight-yellow
 
+  .home
+    font-weight: 500
+    font-size: 50px
+      
 #home
   height: 94vh
   display: flex
@@ -67,26 +118,74 @@ h3
     margin-top: 8%
     margin-bottom: 4%
 
+    a
+      color: $red
+      text-decoration: none
+      text-transform: none
+      color: inherit
+
+      &:hover
+        text-decoration: none 
+        color: $dark-red
+
     h2
       padding-bottom: 80px
 
-  .button
-    height: 100px
-    width: 200px
-    background-color: $yellow
-    color: $red
+#about-body
+  height: 1600px
+  
+  .about
+    display: flex
+    flex-direction: column
+    align-items: center 
+    text-align: center
+  
+    .about-hero
+      border: solid 4px $yellow
+      margin: 5% 
+      width: 700  
 
-    &:hover
-      background-color: $highlight-yellow
-    
-    h2
-      font-family: $h1
-      font-weight: 400
-      letter-spacing: 2px
-      color: $red
-      flex-direction: column
-      align-items: center 
-      justify-content: center
-      padding-top: 15px
+      h2
+        font-size: 30px
+        padding-bottom: 0
+        margin-bottom: 0
+
+      h3
+        font-size: 3em
+        padding: 30px
+
+    .info
+      max-width: 670px
+      display: flex
+      text-align: justify
+
+    .text-box
+      margin-bottom: 15px
+
+    .text-box-4
+      margin-bottom: 100px
+
+#work-timer-body
+  height: 100vh
+  display: flex
+  flex-direction: column
+  align-items: center 
+  text-align: center
+
+  h1
+    font-size: 20em
+    padding: 7%
+
+  h2
+    font-family: $h1
+    color: $red
+    padding: 15px
+
+
+
+
+
+
+
 
 
