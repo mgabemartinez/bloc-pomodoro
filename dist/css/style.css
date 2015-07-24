@@ -27,17 +27,34 @@ p {
 
 .button-large {
   text-decoration: none;
-  padding: 45px 90px;
+  display: inline;
+  float: left;
+  width: 300px;
+  height: 150px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background-color: #F0E7CC;
   color: #C96363;
   font-family: Ubuntu;
   font-weight: 400;
   font-size: 2em;
-  letter-spacing: 2px; }
+  letter-spacing: 2px;
+  border: solid 3px #C96363; }
   .button-large:hover {
     text-decoration: none;
     color: #9E4747;
-    background-color: #E8DAB3; }
+    background-color: #E8DAB3;
+    cursor: pointer; }
   .button-large:visited {
     text-decoration: none;
     color: #C96363; }
