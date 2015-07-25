@@ -119,13 +119,13 @@ Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($s
 
   $scope.BreakTimeKeeper = function() {
     $("#workTime")[0].innerHTML = '5:00'; 
-        if (breakTimerOn === false) {
+      if (breakTimerOn === false) {
           
-          currentSecond = 4;
-          breakTimerOn = true;
+        currentSecond = 4;
+        breakTimerOn = true;
 
-          if (sessionCounter === 3) {
-            breakCurrentSecond = 300;
+          if (sessionCounter === 4) {
+            breakCurrentSecond = 7;
           }
 
           else {
@@ -172,12 +172,12 @@ Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($s
         }
 
 
-        else {
-          breakCurrentSecond = 3;
-          $interval.cancel(breakSecondCounter);
-          breakTimerOn = false;
-        }
-      };
+      else {
+        breakCurrentSecond = 3;
+        $interval.cancel(breakSecondCounter);
+        breakTimerOn = false;
+      }
+    };
 
   $scope.loopReset = function() {
     $("#workTime")[0].innerHTML = '25:00'; 
