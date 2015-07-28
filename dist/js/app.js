@@ -38,9 +38,10 @@ Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($s
 
   $scope.workStartButton = 'START WORK';
   $scope.breakStartButton = 'START BREAK';
+  $scope.loopResetButton = 'START ANOTHER WORK SESSION';
 
-  $scope.currentSecond = 1500; 
-  $scope.breakCurrentSecond = 300;
+  $scope.currentSecond = 4; 
+  $scope.breakCurrentSecond = 3;
   
   var currentSecond = $scope.currentSecond;
   var breakCurrentSecond = $scope.breakCurrentSecond;
@@ -54,6 +55,9 @@ Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($s
   $scope.breakTimerVisible = false;
   $scope.loopResetVisible = false;
 
+  $scope.sessionCounter = 0;
+  var sessionCounter = 0;
+
 
 
 
@@ -61,7 +65,7 @@ Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($s
         
 
         if (workTimerOn === false) {
-
+          breakCurrentSecond = 3;
           workTimerOn = true;
           
           var secondCounter = $interval(function() { 
@@ -77,23 +81,27 @@ Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($s
             if (currentSecond < 60 ) {
               timeString = (":" + seconds);
             }
-          
-            if (currentSecond < 1500) {
-              $scope.workStartButton = 'RESET';
-            }
 
             if (currentSecond === 1500) {
-              $scope.workStartButton = 'START WORK';
+                $scope.workStartButton = 'START WORK';
+            }
+
+            if (currentSecond < 1500 & currentSecond > 0) {
+              $scope.workStartButton = 'RESET';
             }
 
             if (currentSecond === 0 || workTimerOn === false) {
               $interval.cancel(secondCounter);
             }
-
+            
             if (currentSecond === 0) {
-             $scope.breakTimerVisible = true;
-             $scope.workTimerVisible = false;
+              sessionCounter = (sessionCounter + 1);
+              console.log(sessionCounter);
+              $scope.breakStartButton = 'START BREAK';
+              $scope.breakTimerVisible = true;
+              $scope.workTimerVisible = false;
             }
+
 
             $("#workTime")[0].innerHTML = timeString; 
             currentSecond--;
@@ -102,7 +110,7 @@ Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($s
         }
 
         else {
-          currentSecond = 1500;
+          currentSecond = 4;
           $interval.cancel(secondCounter);
           workTimerOn = false;
         }
@@ -110,15 +118,24 @@ Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($s
 
 
   $scope.BreakTimeKeeper = function() {
-
-        if (breakTimerOn === false) {
-
-          breakTimerOn = true;
+    $("#workTime")[0].innerHTML = '5:00'; 
+      if (breakTimerOn === false) {
           
+        currentSecond = 4;
+        breakTimerOn = true;
+
+          if (sessionCounter === 4) {
+            breakCurrentSecond = 7;
+          }
+
+          else {
+            breakCurrentSecond = 3;
+          }
+
           var breakSecondCounter = $interval(function() { 
             var breakMinutes = Math.floor(breakCurrentSecond / 60);
             var breakSeconds = (breakCurrentSecond % 60);
-            
+
             if (breakSeconds < 10) {
               breakSeconds = ('0' + breakSeconds);
             }
@@ -129,7 +146,7 @@ Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($s
               breakTimeString = (":" + breakSeconds);
             }
           
-            if (breakCurrentSecond < 300) {
+            if (breakCurrentSecond < 300 && breakCurrentSecond > 0) {
               $scope.breakStartButton = 'RESET';
             }
 
@@ -142,10 +159,9 @@ Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($s
             }
 
             if (breakCurrentSecond === 0) {
-              workTimerOn === false
+              workTimerOn === false;
               $scope.breakTimerVisible = false;
               $scope.loopResetVisible = true; 
-
             }
 
             $("#workTime")[0].innerHTML = breakTimeString; 
@@ -155,21 +171,23 @@ Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($s
           }, 1000); 
         }
 
-        else {
-          $scope.breakStartButton = 'START';
-          breakCurrentSecond = 300;
-          $interval.cancel(breakSecondCounter);
-          breakTimerOn = false;
-        }
-      };
 
-      $scope.loopReset = function() {
-        $("#workTime")[0].innerHTML = '25:00'; 
-        $scope.workStartButton = 'START WORK';
-        $scope.currentSecond = 1500
-        $scope.workTimerVisible = true;
-        $scope.loopResetVisible = false;
+      else {
+        breakCurrentSecond = 3;
+        $interval.cancel(breakSecondCounter);
+        breakTimerOn = false;
       }
+    };
+
+  $scope.loopReset = function() {
+    $("#workTime")[0].innerHTML = '25:00'; 
+    $scope.workStartButton = 'START WORK';
+    $scope.currentSecond = 1500
+
+    workTimerOn = false;
+    $scope.workTimerVisible = true;
+    $scope.loopResetVisible = false;
+  }
 
 
 }]);
