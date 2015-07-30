@@ -58,8 +58,13 @@ Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($s
   $scope.sessionCounter = 0;
   var sessionCounter = 0;
 
+  // var mySound = new buzz.sound( "/sounds/ding.mp3", {
+  //   formats: [ "mp3"],
+  //   preload: true,
+  //   loop: true
+  // });
 
-
+  // mySound.play(mySound);
 
   $scope.TimeKeeper = function() {
         
@@ -68,6 +73,7 @@ Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($s
           breakCurrentSecond = 3;
           workTimerOn = true;
           
+
           var secondCounter = $interval(function() { 
             var minutes = Math.floor(currentSecond / 60);
             var seconds = (currentSecond % 60);
@@ -95,6 +101,7 @@ Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($s
             }
             
             if (currentSecond === 0) {
+              mySound.play();
               sessionCounter = (sessionCounter + 1);
               console.log(sessionCounter);
               $scope.breakStartButton = 'START BREAK';
@@ -105,7 +112,7 @@ Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($s
 
             $("#workTime")[0].innerHTML = timeString; 
             currentSecond--;
-            
+            console.log(currentSecond);
           }, 1000); 
         }
 
@@ -117,6 +124,7 @@ Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($s
       };
 
 
+
   $scope.BreakTimeKeeper = function() {
     $("#workTime")[0].innerHTML = '5:00'; 
       if (breakTimerOn === false) {
@@ -124,7 +132,7 @@ Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($s
         currentSecond = 4;
         breakTimerOn = true;
 
-          if (sessionCounter === 4) {
+          if (sessionCounter % 4 === 0) {
             breakCurrentSecond = 7;
           }
 
@@ -191,9 +199,6 @@ Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($s
 
 
 }]);
-
-
-
 
 
 

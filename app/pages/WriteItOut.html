@@ -1,21 +1,19 @@
-var sessionCounter = 0;
-
-in TimeKeeper
-
-if currentsecond === 0 {
-  sessioncounter = (sessionCounter + 1);
-}
 
 
 
 
+Buzz playing ding?
+
+
+Best way to write every 4 work sessions?
 
 
 
+After 1st time through cycle, 
+break timer needs additional click 
+to start
 
-
-
-
+Github workflow
 
 
 
@@ -29,6 +27,7 @@ if currentsecond === 0 {
 
 
 
+github
 
 
 
@@ -37,8 +36,24 @@ if currentsecond === 0 {
 
 
 
+var alarm = new buzz.sound("app/assets/ding.mp3", "preload:true")  
+            alarm.play();
 
 
 
 
 
+
+
+
+  $scope.Ding = function() {
+
+          var mySound = new buzz.sound("/sounds/ding.mp3", {
+              formats: [ "mp3"],
+              preload: true,
+              loop: false
+            })
+
+            mySound.play();
+
+  };
