@@ -1,6 +1,8 @@
 /// App Config ///
 var Pomodoro = angular.module('Pomodoro', ['firebase', 'ui.router']);
 
+Pomodoro.constant('FIREBASE_URI', 'https://vivid-torch-2252.firebaseio.com/');
+
 Pomodoro.config(['$stateProvider', '$locationProvider', function($stateProvider, $locationProvider) {
   $locationProvider.html5Mode({
     enabled: true,
@@ -36,6 +38,8 @@ Pomodoro.controller('about.controller', ['$scope', function($scope) {
 
 Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($scope, $interval) {
 
+
+  /// TimeKeeping ///
   $scope.workStartButton = 'START WORK';
   $scope.breakStartButton = 'START BREAK';
   $scope.loopResetButton = 'START ANOTHER WORK SESSION';
@@ -58,16 +62,9 @@ Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($s
   $scope.sessionCounter = 0;
   var sessionCounter = 0;
 
-  // var mySound = new buzz.sound( "/sounds/ding.mp3", {
-  //   formats: [ "mp3"],
-  //   preload: true,
-  //   loop: true
-  // });
 
-  // mySound.play(mySound);
 
   $scope.TimeKeeper = function() {
-        
 
         if (workTimerOn === false) {
           breakCurrentSecond = 3;
@@ -101,7 +98,6 @@ Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($s
             }
             
             if (currentSecond === 0) {
-              mySound.play();
               sessionCounter = (sessionCounter + 1);
               console.log(sessionCounter);
               $scope.breakStartButton = 'START BREAK';
@@ -197,17 +193,62 @@ Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($s
     $scope.loopResetVisible = false;
   }
 
-
 }]);
 
+Pomodoro.controller('taskController', ['$scope', function($scope) {
 
+  $scope.todos = [  ];
 
+  $scope.addToDo = function() {
+    $scope.todos.push({'text': $scope.newtodo, 'done': false})
+    $scope.newtodo = ''
+  }
 
+  $scope.clearCompleted = function() {
+    $scope.todos = $scope.todos.filter(function(item) {
+      return !item.done
+    })
+  }
+
+}])
+
+///  BUTTON SWAP  /////
 
 Pomodoro.directive('start25', function(){
    return {
      templateUrl: '/templates/directives/start25.html', 
      replace: true,
      restrict: 'E'
-   };
- });
+  };
+});
+
+
+Pomodoro.factory('Tasks', ['$firebase', 'FIREBASE_URI', function ($firebase, FIREBASE_URI) {
+  var ref = new firebase(FIREBASE_URI);
+  var todos = $firebase(ref)
+
+  var addToDo = function() {
+    return addToDo;
+  }
+
+  var clearCompleted = function() {
+    return clearCompleted
+  }
+
+}])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

@@ -25,9 +25,14 @@ p {
   letter-spacing: 0.01em;
   padding: 20px; }
 
+button {
+  border: none; }
+
+form, input {
+  margin: 0; }
+
 .button-large {
   text-decoration: none;
-  display: inline;
   float: left;
   width: 300px;
   height: 150px;
@@ -59,6 +64,44 @@ p {
     text-decoration: none;
     color: #C96363; }
   .button-large:active {
+    text-decoration: none;
+    -webkit-text-decoration-style: none;
+       -moz-text-decoration-style: none;
+            text-decoration-style: none; }
+
+.button-small {
+  width: 75px;
+  height: 75px;
+  float: right;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-decoration: none;
+  display: inline;
+  text-decoration: none;
+  background-color: #F0E7CC;
+  font-family: Ubuntu;
+  font-weight: 400;
+  font-size: 1.5em;
+  color: #C96363;
+  letter-spacing: 2px;
+  padding: 7px;
+  margin: 15px; }
+  .button-small:hover {
+    text-decoration: none;
+    color: #9E4747;
+    background-color: white;
+    cursor: pointer; }
+  .button-small:visited {
+    text-decoration: none;
+    color: #C96363; }
+  .button-small:active {
     text-decoration: none;
     -webkit-text-decoration-style: none;
        -moz-text-decoration-style: none;
@@ -136,40 +179,44 @@ p {
     #home .hero h2 {
       padding-bottom: 80px; }
 
-#about-body {
-  height: 1600px; }
-  #about-body .about {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
-    text-align: center; }
-    #about-body .about .about-hero {
-      border: solid 4px #F0E7CC;
-      margin: 5%;
-      width: 700; }
-      #about-body .about .about-hero h2 {
-        font-size: 30px;
-        padding-bottom: 0;
-        margin-bottom: 0; }
-      #about-body .about .about-hero h3 {
-        font-size: 3em;
-        padding: 30px; }
-    #about-body .about .info {
-      max-width: 670px;
+#about-section {
+  width: 100%;
+  height: 100vh; }
+  #about-section #about-body {
+    height: 1600px;
+    background-color: white; }
+    #about-section #about-body .about {
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
-      text-align: justify; }
-    #about-body .about .text-box {
-      margin-bottom: 15px; }
-    #about-body .about .text-box-4 {
-      margin-bottom: 100px; }
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      text-align: center; }
+      #about-section #about-body .about .about-hero {
+        border: solid 4px #F0E7CC;
+        margin: 5%;
+        width: 700; }
+        #about-section #about-body .about .about-hero h2 {
+          font-size: 30px;
+          padding-bottom: 0;
+          margin-bottom: 0; }
+        #about-section #about-body .about .about-hero h3 {
+          font-size: 3em;
+          padding: 30px; }
+      #about-section #about-body .about .info {
+        max-width: 670px;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        text-align: justify; }
+      #about-section #about-body .about .text-box {
+        margin-bottom: 15px; }
+      #about-section #about-body .about .text-box-4 {
+        margin-bottom: 100px; }
 
 #work-timer-body {
   height: 100vh;
@@ -190,3 +237,50 @@ p {
     font-family: Ubuntu;
     color: #C96363;
     padding: 15px; }
+
+#task-list {
+  height: 800px;
+  width: 400px;
+  margin: 30px;
+  background: #E8DAB3;
+  float: left;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: left;
+  position: relative; }
+  #task-list h1 {
+    font-size: 3.5em;
+    letter-spacing: 5px;
+    color: #C96363;
+    padding-bottom: 10px; }
+  #task-list .task-input {
+    background-color: #F0E7CC;
+    outline: none;
+    border: 0px solid;
+    height: 70px;
+    width: 100%;
+    padding: 25px;
+    font-family: Ubuntu;
+    font-size: 2em;
+    color: #9E4747;
+    border-bottom: 2px solid #E8DAB3; }
+  #task-list .clear-completed {
+    width: 200px;
+    font-size: 1em;
+    text-align: center;
+    padding: 26px;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    margin: 0; }
+
+.glyphicon-plus {
+  font-size: 4em; }
+
+.done {
+  text-decoration: line-through;
+  color: whitesmoke; }

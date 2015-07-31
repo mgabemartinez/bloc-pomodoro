@@ -1,3 +1,54 @@
+<div id='task-list' >
+  <h1>TASKS</h3>
+
+  <div ng-controller='taskController'>
+    
+    <ul>
+      <li class='task-input'
+          ng-repeat='todo in todos'>
+          
+          <div id="holder">
+          <input type='checkbox'
+                 ng-model='todo.done'/>
+
+          <span ng-class="{'done':todo.done}">
+              {{ todo.text }}  
+          </span>        
+      </li>
+    </ul>
+
+    <form name='form' 
+          ng-submit='addToDo()'>
+
+        <input type='text'
+               class='task-input' 
+               ng-model="newtodo" 
+               
+               required >
+        </input>
+
+        <button class='button-small glyphicon glyphicon-plus text-center'
+           ng-disabled='form.$invalid'>
+        </button>
+    </form>
+
+
+
+ 
+        
+    
+
+  
+
+  <button class='button-small clear-completed'
+    ng-click='clearCompleted()'>
+                  Clear Completed
+  </button>
+</div>
+</div>
+
+
+
 <div id='work-timer-body'>
   
   <h1 id='workTime'>  {{ timeString }} </h1>
@@ -5,4 +56,4 @@
   <!-- Start Button -->
   <start25></start25>
 
-</div>
+</div> 

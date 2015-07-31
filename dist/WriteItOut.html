@@ -1,23 +1,12 @@
 
-
-
-
-Buzz playing ding?
-
-
-Best way to write every 4 work sessions?
-
-
-
-After 1st time through cycle, 
-break timer needs additional click 
-to start
-
-Github workflow
-
-
-
-
+<input class='task-input' 
+         placeholder='Get shit done.' 
+         ng-model="data.text">
+  </input>
+  
+  
+  
+  <a class='button-small glyphicon glyphicon-plus text-center'></a>
 
 
 
@@ -56,4 +45,25 @@ var alarm = new buzz.sound("app/assets/ding.mp3", "preload:true")
 
             mySound.play();
 
-  };
+
+
+
+
+
+
+  // var mySound = new buzz.sound( "/sounds/ding.mp3", {
+  //   formats: [ "mp3"],
+  //   preload: true,
+  //   loop: true
+  // });
+
+  // mySound.play(mySound);
+
+
+  var ref = new Firebase('https://vivid-torch-2252.firebaseio.com/');
+
+  // create an AngularFire reference to the data
+  var syncObject = $firebaseObject(ref);
+
+  // download the tasks into a local array
+  syncObject.$bindTo($scope, "data");
