@@ -1,32 +1,79 @@
-<div id='task-list' >
+<div id='task-list' ng-controller='MyCtrl'>
   <h1>TASKS</h3>
-
-  <div ng-controller='taskController'>
     
     <ul>
       <li class='task-input'
           ng-repeat='todo in todos'>
           
           <div id="holder">
-          <input type='checkbox'
-                 ng-model='todo.done'/>
+            <input type='checkbox'
+                   ng-model='todo.done'/>
 
-          <span ng-class="{'done':todo.done}">
-              {{ todo.text }}  
-          </span>        
+            <span ng-class="{'done':todo.done}">
+                {{ todo.text }}  
+            </span>        
+          </div>
       </li>
     </ul>
+    
+    <form ng-submit='addToDo()'>
+
+      <input type="text" 
+             placeholder='I need to...' 
+             ng-model="data.text"
+             class='task-input'
+             required>
+      </input>
+      <button class='button-small glyphicon glyphicon-plus text-center'
+              ng-disabled='form.$invalid'>
+      </button>
+
+    </form>  
+
+      <h2>You said: {{ data.text }}</h2>
+
+    
+
+</div>
+
+<!--
+<div id='task-list' >
+  <h1>TASKS</h3>
+
+  <div ng-controller='taskController'>
+    
+
+
+
+    <ul>
+      <li class='task-input'
+          ng-repeat='todo in todos'>
+          
+          <div id="holder">
+            <input type='checkbox'
+                   ng-model='todo.done'/>
+
+            <span ng-class="{'done':todo.done}">
+                {{ todo.text }}  
+            </span>        
+          </div>
+      </li>
+    </ul>
+
+
+
 
     <form name='form' 
           ng-submit='addToDo()'>
 
         <input type='text'
+               placeholder='I need to...'
                class='task-input' 
                ng-model="newtodo" 
-               
                required >
         </input>
 
+      
         <button class='button-small glyphicon glyphicon-plus text-center'
            ng-disabled='form.$invalid'>
         </button>
@@ -34,11 +81,6 @@
 
 
 
- 
-        
-    
-
-  
 
   <button class='button-small clear-completed'
     ng-click='clearCompleted()'>
@@ -46,6 +88,9 @@
   </button>
 </div>
 </div>
+
+-->
+
 
 
 

@@ -1,8 +1,6 @@
 /// App Config ///
 var Pomodoro = angular.module('Pomodoro', ['firebase', 'ui.router']);
 
-Pomodoro.constant('FIREBASE_URI', 'https://vivid-torch-2252.firebaseio.com/');
-
 Pomodoro.config(['$stateProvider', '$locationProvider', function($stateProvider, $locationProvider) {
   $locationProvider.html5Mode({
     enabled: true,
@@ -29,12 +27,22 @@ Pomodoro.config(['$stateProvider', '$locationProvider', function($stateProvider,
 }]);
 
 
+
+
+
+
 /// Call the controller ///
-Pomodoro.controller('home.controller', ['$scope', function($scope) {
-}]);
+
+
 
 Pomodoro.controller('about.controller', ['$scope', function($scope) {
  }]);
+
+
+
+Pomodoro.controller('home.controller', ['$scope', function($scope) {
+ }]);
+
 
 Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($scope, $interval) {
 
@@ -195,9 +203,12 @@ Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($s
 
 }]);
 
+
+
 Pomodoro.controller('taskController', ['$scope', function($scope) {
 
-  $scope.todos = [  ];
+
+  $scope.todos = [ ];
 
   $scope.addToDo = function() {
     $scope.todos.push({'text': $scope.newtodo, 'done': false})
@@ -210,7 +221,37 @@ Pomodoro.controller('taskController', ['$scope', function($scope) {
     })
   }
 
-}])
+
+}]);
+
+
+Pomodoro.controller("MyCtrl", function($scope, $firebaseObject) {
+  
+  var ref = new Firebase("https://vivid-torch-2252.firebaseio.com/");
+  var syncObject = $firebaseObject(ref);
+
+  syncObject.$bindTo($scope, "data");
+
+  
+
+  $scope.todos = [ ];
+
+  $scope.addToDo = function() {
+    $scope.todos.push({'text': $scope.newtodo, 'done': false})
+    $scope.newtodo = ''
+  }
+
+   $scope.clearCompleted = function() {
+    $scope.todos = $scope.todos.filter(function(item) {
+      return !item.done
+    })
+  }
+
+
+
+});
+
+
 
 ///  BUTTON SWAP  /////
 
@@ -221,21 +262,6 @@ Pomodoro.directive('start25', function(){
      restrict: 'E'
   };
 });
-
-
-Pomodoro.factory('Tasks', ['$firebase', 'FIREBASE_URI', function ($firebase, FIREBASE_URI) {
-  var ref = new firebase(FIREBASE_URI);
-  var todos = $firebase(ref)
-
-  var addToDo = function() {
-    return addToDo;
-  }
-
-  var clearCompleted = function() {
-    return clearCompleted
-  }
-
-}])
 
 
 
