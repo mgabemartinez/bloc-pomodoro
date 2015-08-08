@@ -181,11 +181,30 @@ form, input {
 
 #about-section {
   width: 100%;
-  height: 100vh; }
+  height: 100vh;
+  background-color: white;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center; }
   #about-section #about-body {
     height: 1600px;
-    background-color: white; }
+    background-color: white;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center; }
     #about-section #about-body .about {
+      background-color: white;
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
@@ -197,9 +216,20 @@ form, input {
               align-items: center;
       text-align: center; }
       #about-section #about-body .about .about-hero {
+        background-color: white;
         border: solid 4px #F0E7CC;
         margin: 5%;
-        width: 700; }
+        width: 700;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
+        text-align: center; }
         #about-section #about-body .about .about-hero h2 {
           font-size: 30px;
           padding-bottom: 0;
@@ -214,9 +244,29 @@ form, input {
         display: flex;
         text-align: justify; }
       #about-section #about-body .about .text-box {
-        margin-bottom: 15px; }
+        margin-bottom: 15px;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
+        text-align: center; }
       #about-section #about-body .about .text-box-4 {
-        margin-bottom: 100px; }
+        margin-bottom: 100px;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
+        text-align: center; }
 
 #work-timer-body {
   height: 100vh;
@@ -288,3 +338,8 @@ form, input {
 .holder {
   border: 0;
   margin: 0; }
+
+.gabe {
+  background-color: gray;
+  height: 400px;
+  width: 100%; }

@@ -52,8 +52,8 @@ Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($s
   $scope.breakStartButton = 'START BREAK';
   $scope.loopResetButton = 'START ANOTHER WORK SESSION';
 
-  $scope.currentSecond = 4; 
-  $scope.breakCurrentSecond = 3;
+  $scope.currentSecond = 1500; 
+  $scope.breakCurrentSecond = 300;
   
   var currentSecond = $scope.currentSecond;
   var breakCurrentSecond = $scope.breakCurrentSecond;
@@ -121,7 +121,7 @@ Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($s
         }
 
         else {
-          currentSecond = 4;
+          currentSecond = 1500;
           $interval.cancel(secondCounter);
           workTimerOn = false;
         }
@@ -185,7 +185,7 @@ Pomodoro.controller('work-timer.controller', ['$scope', '$interval', function($s
 
 
       else {
-        breakCurrentSecond = 3;
+        breakCurrentSecond = 300;
         $interval.cancel(breakSecondCounter);
         breakTimerOn = false;
       }
